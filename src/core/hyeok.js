@@ -26,12 +26,12 @@ function routeRender(routes) {
   }, {});
   history.replaceState(query, "");
 
-  const currentRoute = routes.find((route) => {
-    new RegExp(`${route.path}/?$`).test(hash);
-  });
+  const currentRoute = routes.find((route) =>
+    new RegExp(`${route.path}/?$`).test(hash)
+  );
 
   routerView.innerHTML = "";
-  routerView.append(currentRoute.component().el);
+  routerView.append(new currentRoute.component().el);
 
   window.scrollTo(0, 0);
 }
@@ -45,14 +45,14 @@ export function createRouter(routes) {
   };
 }
 
-export class store {
+export class Store {
   constructor(state) {
     this.state = {};
     this.observers = {};
     for (const key in state) {
       Object.defineProperty(this.state, key, {
         get: () => state[key],
-        set: () => {
+        set: (val) => {
           state[key] = val;
           if (Array.isArray(this.observers[key])) {
             this.observers[key].forEach((observer) => observer(val));
