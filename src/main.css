@@ -364,6 +364,13 @@ header .user img {
   text-decoration: underline;
 }
 
+.not-found h1 {
+  font-size: 70px;
+  font-weight: 700;
+  color: var(--color-white-10);
+  text-align: center;
+}
+
 footer {
   padding: 40px 40px 60px;
   text-align: center;
