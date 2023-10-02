@@ -1,7 +1,16 @@
 import { Component } from "../core/hyeok";
 import image from "../../images/favicon.png";
 
+interface State {
+  [key: string]: unknown;
+  menus: {
+    name: string;
+    href: string;
+  }[];
+}
+
 export default class TheHeader extends Component {
+  public state!: State;
   constructor() {
     super({
       tagName: "header",

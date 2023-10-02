@@ -1,7 +1,15 @@
 import { Store } from "../core/hyeok";
 import photo from "../../images/favicon.png";
 
-export default new Store({
+interface State {
+  photo: typeof photo;
+  name: string;
+  email: string;
+  github: string;
+  repository: string;
+}
+
+export default new Store<State>({
   photo: photo,
   name: "HYEOK / KimJaeHyeok",
   email: "rlawogur0533@gmail.com",
